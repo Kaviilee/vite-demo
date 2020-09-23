@@ -1,8 +1,11 @@
-<template>
-  <h1>{{ msg }}</h1>
-  <button @click="handleClick">count is: {{ count }} {{ account.money }} {{ store.getters.count }}</button>
-  <p>Edit <code v-highlight="'yellow'">components/HelloWorld.vue</code> to test hot module replacement.</p>
-  <template>112</template>
+<template lang="pug">
+h1 {{ msg }}
+button(@click="handleClick") count is: {{ count }} {{ account.money }} {{ store.getters.count }}
+p Edit 
+  code(v-highlight="'yellow'") components/HelloWorld.vue
+  span  to test hot module replacement.
+
+  
 </template>
 
 <script>

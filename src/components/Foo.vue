@@ -1,5 +1,6 @@
-<template>
-    <div>{{ msg }}</div>
+<template lang="pug">
+div {{msg}} &emsp;
+    router-link(to="/") home
 </template>
 
 <script>
