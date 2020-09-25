@@ -4,15 +4,17 @@ div {{msg}} &emsp;
 </template>
 
 <script>
-import { defineComponent, ref } from 'vue'
-export default defineComponent({
+import { ref } from 'vue'
+export default {
     name: 'Home',
     setup() {
         const msg = ref('home')
+        const color = ref('red')
         
         return {
-            msg
+            msg,
+            color
         }
     }
-})
+}
 </script>
