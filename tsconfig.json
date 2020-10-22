@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "module": "esNext",
+    "moduleResolution": "node",
+    "target": "ES2019",
+    "jsx": "react",
+    "baseUrl": "./",
+    "skipLibCheck": true,
+    "paths": {
+      "@components/*": ["./src/components"],
+    },
+    "noUnusedParameters": false
+  },
+  "include": ["./**/*.ts"]
+}

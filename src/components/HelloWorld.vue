@@ -8,9 +8,14 @@ p Edit
   
 </template>
 
-<script>
-import { defineComponent, ref, reactive, onMounted } from 'vue'
+<script lang="ts">
+import { defineComponent, ref, reactive, onMounted, handleError } from 'vue'
 import { useStore } from 'vuex'
+
+type Account = {
+  money: number
+}
+
 export default defineComponent({
   name: 'HelloWorld',
   props: {
@@ -18,20 +23,10 @@ export default defineComponent({
   },
   setup() {
     const count = ref(0)
-    const account = reactive({})
-    const store = useStore()
-
-    onMounted(() => {
-      new Proxy(account, {
-        get(target, key, receiver) {
-          return Reflect.get(target, key, receiver)
-        },
-        set(target, key, val, receiver) {
-          Reflect.set(target, key, val, receiver)
-        }
-      })
-      account.money = 0
+    const account = reactive<Account>({
+      money: 0
     })
+    const store = useStore()
 
     const handleClick = () => {
       count.value++
