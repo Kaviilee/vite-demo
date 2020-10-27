@@ -11,8 +11,9 @@
     name: 'GoogleMaps',
     setup() {
       const gmap = ref(null)
+      const API_KEY:string = process.env.apiKey || ''
       const opt: LoaderOptions = {
-        apiKey: 'AIzaSyB-jN_GF8wdwqz7Iw121C0BAS9eYsgsv3A',
+        apiKey: API_KEY,
         // version: 'weekly',
         // libraries: ['places']
       }
