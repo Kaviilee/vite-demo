@@ -7,7 +7,7 @@ import './index.css'
 const app = createApp(App)
 
 app.directive('highlight', {
-    beforeMount(el, { value }) {
+    beforeMount(el: HTMLElement, { value }: { value: string }) {
         el.style.background = value
     }
 })

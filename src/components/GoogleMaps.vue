@@ -5,48 +5,57 @@
 </template>
 
 <script lang="ts">
-  import { defineComponent, onMounted, ref } from 'vue'
-  import { Loader, LoaderOptions } from '@googlemaps/js-api-loader'
-  export default defineComponent({
-    name: 'GoogleMaps',
-    setup() {
-      const gmap = ref(null)
-      const API_KEY:string = process.env.apiKey || ''
-      const opt: LoaderOptions = {
-        apiKey: API_KEY,
-        // version: 'weekly',
-        // libraries: ['places']
-      }
-      onMounted(() => {
-        initMap()
-      })
-      const initMap = async () => {
-        const loader = new Loader(opt)
-
-        const mapOptions = {
-          center: {
-            lat: 0,
-            lng: 0
-          },
-          zoom: 4
+import { defineComponent, onMounted } from "vue";
+import { LoaderOptions } from "google-maps";
+import GoogleMaps from "../utils/init";
+export default defineComponent({
+  name: "GoogleMaps",
+  setup() {
+    const API_KEY: string = process.env.apiKey || "";
+    const opt: LoaderOptions = {
+      // apiKey: API_KEY,
+      version: "weekly",
+      libraries: ["places"],
+    };
+    const mapOptions = {
+      center: {
+        lat: 0,
+        lng: 0,
+      },
+      zoom: 4,
+    };
+    onMounted(() => {
+      loadMap();
+    });
+    const loadMap = () => {
+      const maps = new GoogleMaps(
+        document.getElementById("gmap") as HTMLElement,
+        {
+          apiKey: API_KEY,
+          loaderOptions: opt,
+          mapOptions,
         }
+      );
+      // addMark(maps);
+    };
 
-        loader.load().then(() => {
-          // @ts-ignore
-          new google.maps.Map(document.getElementById('gmap'), mapOptions)
-        }).catch(e => {
-          console.log(e)
-        })
+    const addMark = (maps: GoogleMaps) => {
+      maps.createMarker({
+        position: {
+          lat: 0,
+          lng: 0,
+        },
+      });
+    };
 
-        return {
-          initMap
-        }
-      }
-    }
-  })
+    return {
+      loadMap,
+    };
+  },
+});
 </script>
 
-<style>
+<style lang="less">
 .gmap {
   width: 700px;
   height: 500px;
