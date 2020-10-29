@@ -1,5 +1,4 @@
 import { Loader } from 'google-maps'
-import { Options } from './index'
 
 export default class GoogleMaps {
   public el: HTMLElement;
