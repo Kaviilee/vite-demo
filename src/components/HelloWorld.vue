@@ -1,45 +1,45 @@
 <template lang="pug">
 h1 {{ msg }}
 button(@click="handleClick") count is: {{ count }} {{ account.money }} {{ store.getters.count }}
-p Edit 
+p Edit
   code(v-highlight="'yellow'") components/HelloWorld.vue
   span  to test hot module replacement.
 
-  
+
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, reactive, onMounted, handleError } from 'vue'
-import { useStore } from 'vuex'
+import { defineComponent, ref, reactive } from "vue";
+import { useStore } from "vuex";
 
 type Account = {
-  money: number
-}
+  money: number;
+};
 
 export default defineComponent({
-  name: 'HelloWorld',
+  name: "HelloWorld",
   props: {
-    msg: String
+    msg: String,
   },
   setup() {
-    const count = ref(0)
+    const count = ref(0);
     const account = reactive<Account>({
-      money: 0
-    })
-    const store = useStore()
+      money: 0,
+    });
+    const store = useStore();
 
     const handleClick = () => {
-      count.value++
-      account.money++
-      store.dispatch('increment')
-    }
+      count.value++;
+      account.money++;
+      store.dispatch("increment");
+    };
 
-    return  {
+    return {
       store,
       account,
       count,
-      handleClick
-    }
-  }
-})
+      handleClick,
+    };
+  },
+});
 </script>
