@@ -13,7 +13,7 @@
       "@utils/*": ["./src/utils/*"]
     },
     "noUnusedParameters": false,
-    "types": ["googlemaps"]
+    "types": ["googlemaps", "@types/node"]
   },
   "include": [
     "src/**/*.ts",
