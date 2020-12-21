@@ -5,7 +5,6 @@ p Edit
   code(v-highlight="'yellow'") components/HelloWorld.vue
   span  to test hot module replacement.
 
-
 </template>
 
 <script lang="ts">

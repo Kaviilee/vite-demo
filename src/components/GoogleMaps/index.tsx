@@ -1,16 +1,10 @@
-<template>
-  <div class="google-maps">
-    <div id="gmap" class="gmap"></div>
-  </div>
-</template>
-
-<script lang="ts">
 import { defineComponent, onMounted } from "vue";
-import initMap from "../utils/googleMaps";
-export default defineComponent({
-  name: "GoogleMaps",
+import initMap from "@/utils/googleMaps";
+
+const GoogleMaps = defineComponent({
   setup() {
     const API_KEY: string = process.env.apiKey || "";
+
     onMounted(() => {
       loadMap();
     });
@@ -37,12 +31,14 @@ export default defineComponent({
       loadMap,
     };
   },
-});
-</script>
 
-<style lang="less">
-.gmap {
-  width: 700px;
-  height: 500px;
-}
-</style>
+  render() {
+    return (
+      <div class="google-maps">
+        <div id="gmap" style="width:700px;height:500px"></div>
+      </div>
+    )
+  }
+})
+
+export default GoogleMaps

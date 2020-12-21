@@ -1,7 +1,10 @@
+/**
+ * can not with * like "@/*": "/src/*"
+ */
 const pathAliasMap = {
-  "@/*": "/src/*",
-  "@components/*": "/src/components/*",
-  "@utils/*": "/src/utils/*"
+  "@/": "/src/",
+  "@components/": "/src/components/",
+  "@utils/": "/src/utils/"
 }
 
 export default {
