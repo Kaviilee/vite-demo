@@ -1,12 +1,12 @@
-import { ref, defineComponent } from "vue";
-import GoogleMaps from "@/components/GoogleMaps";
+import { ref, defineComponent } from 'vue';
+import GoogleMaps from '@/components/GoogleMaps';
 
 const Foo = defineComponent({
   components: {
     GoogleMaps,
   },
   setup() {
-    const msg = ref("foo");
+    const msg = ref('foo');
 
     return {
       msg,
@@ -16,11 +16,11 @@ const Foo = defineComponent({
   render() {
     return (
       <div>
-        <div class="link">{ this.msg }</div>
+        <div class="link">{this.msg}</div>
         <GoogleMaps />
       </div>
-    )
-  }
-})
+    );
+  },
+});
 
-export default Foo
+export default Foo;
