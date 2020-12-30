@@ -5,7 +5,7 @@ type Account = {
   money: number;
 };
 
-const HelloWord = defineComponent({
+const HelloWorld = defineComponent({
   props: {
     msg: {
       type: String,
@@ -49,4 +49,4 @@ const HelloWord = defineComponent({
   },
 });
 
-export default HelloWord;
+export default HelloWorld;
