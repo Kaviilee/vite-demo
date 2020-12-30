@@ -4,10 +4,14 @@ import './index.less';
 const Clipboard = defineComponent({
   setup() {
     const help = ref('单击复制');
+
     const copyActive = () => {
       const copy = document.getElementById('copy') as HTMLInputElement;
-      console.log(copy?.value);
       // copy.select();
+
+      /** 1
+       * document.execCommand('copy')
+       */
       const range = document.createRange();
       window.getSelection()?.removeAllRanges();
       range.selectNode(copy);
@@ -21,14 +25,17 @@ const Clipboard = defineComponent({
         help.value = '复制失败';
       }
 
-      // if (copy) {
-      //   navigator.clipboard.writeText(copy.value).then(() => {
-      //     help.value = '复制成功'
-      //   }).catch(err => {
-      //     help.value = '复制失败'
-      //     console.error(err)
-      //   })
-      // }
+      /** 2
+       * navigator.clipboard
+       */
+      /* if (copy) {
+        navigator.clipboard.writeText(copy.value).then(() => {
+          help.value = '复制成功'
+        }).catch(err => {
+          help.value = '复制失败'
+          console.error(err)
+        })
+      } */
     };
 
     return {
