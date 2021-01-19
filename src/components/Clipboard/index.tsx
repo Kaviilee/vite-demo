@@ -1,4 +1,4 @@
-import { defineComponent, ref } from 'vue';
+import { defineComponent, ref, onMounted, onUnmounted } from 'vue';
 import './index.less';
 
 const Clipboard = defineComponent({
@@ -37,6 +37,32 @@ const Clipboard = defineComponent({
         })
       } */
     };
+
+    const proxyClipboardCopy = (e: any) => {
+      // const copy = document.querySelector('#copy');
+      // copy?.addEventListener('copy', () => {
+      //   navigator.clipboard.readText().then((text) => {
+      //     navigator.clipboard.writeText(`你的剪贴板数据被我更改了哦~~${text}`);
+      //   });
+      // });
+      const selection = document.getSelection();
+      e.clipboardData?.setData('text/plain', `你的剪贴板数据被我更改了哦~~${selection}`);
+      e.preventDefault();
+    };
+
+    const proxyClipboardPaste = (e: ClipboardEvent) => {
+      const text = e.clipboardData?.getData('text/plain');
+      console.log(text);
+      e.preventDefault();
+    };
+
+    onMounted(() => {
+      document.querySelector('#copy')?.addEventListener('copy', proxyClipboardCopy);
+    });
+
+    onUnmounted(() => {
+      document.querySelector('#copy')?.removeEventListener('copy', proxyClipboardCopy);
+    });
 
     return {
       copyActive,
