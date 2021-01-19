@@ -1,7 +1,22 @@
+import { defineConfig } from 'vite';
+import vue from '@vitejs/plugin-vue';
+import vueJsx from '@vitejs/plugin-vue-jsx';
+import path from 'path';
+
+export default defineConfig({
+  plugins: [vue(), vueJsx()],
+  alias: {
+    '@': path.resolve(__dirname, './src'),
+    '@components': path.resolve(__dirname, './src/components'),
+    '@utils': path.resolve(__dirname, './src/utils'),
+    '@assets': path.resolve(__dirname, './src/assets'),
+  },
+});
+
 /**
  * can not with * like "@/*": "/src/*"
  */
-const pathAliasMap = {
+/* const pathAliasMap = {
   '@/': '/src/',
   '@components/': '/src/components/',
   '@utils/': '/src/utils/',
@@ -22,4 +37,4 @@ export default {
   ],
   base: './',
   assetsDir: 'assets',
-};
+}; */
