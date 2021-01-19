@@ -15,7 +15,7 @@ export default {
   beforeCreate() {
     console.group('beforeCreate 创建前状态===============》')
     console.log("color:red" , "el     : " + this.$el);
-    console.log("color:red","data   : " + this.$data);
+    console.log("color:red","data   : " + this.$data); // 此处一开始就有内容是因为不是初始化 vue
     console.log("color:red","message: " + this.message)
   },
   created() {
