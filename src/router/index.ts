@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import Home from '../components/Home';
-import Foo from '../components/Foo';
-const Clipboard = () => import('@/components/Clipboard');
+import Home from '@/views/Home.tsx';
+import Foo from '@/views/Foo.tsx';
+const Clipboard = () => import('@/views/Clipboard.tsx');
 import LifeCircle from '@/components/LifeCircle.vue';
 
 export const router = createRouter({

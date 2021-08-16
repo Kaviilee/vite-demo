@@ -2,7 +2,7 @@ import { createApp } from 'vue';
 import App from './App';
 import { router } from './router';
 import { store } from './store';
-import './styles/index.less';
+import '@/assets/css/index.less';
 
 const app = createApp(App);
 

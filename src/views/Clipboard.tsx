@@ -1,5 +1,5 @@
 import { defineComponent, ref, onMounted, onUnmounted } from 'vue';
-import './index.less';
+import '@/assets/css/clipboard.less';
 
 const Clipboard = defineComponent({
   setup() {

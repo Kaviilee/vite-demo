@@ -1,6 +1,6 @@
 import { ref, defineComponent } from "vue";
 import { RouterLink } from 'vue-router'
-import './index.less'
+import '@/assets/css/home.less'
 
 const Home = defineComponent({
   setup() {

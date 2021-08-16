@@ -1,7 +1,7 @@
 import { defineComponent } from 'vue';
 import { RouterView } from 'vue-router';
-import HelloWorld from './components/HelloWorld';
-import logo from '@/assets/logo.png';
+import HelloWorld from '@/components/HelloWorld';
+import logo from '@/assets/img/logo.png';
 
 export default defineComponent({
   name: 'App',
